@@ -19,6 +19,7 @@ class CreateMahasiswasTable extends Migration
             $table->string('nim', 10);
             $table->string('prodi');
             $table->string('semester');
+            $table->string('pembimbing');
             $table->char('status',1);
             $table->timestamps();
         });

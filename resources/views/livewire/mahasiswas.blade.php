@@ -33,6 +33,7 @@
                         <th class="px-1 py-1" style="border: 1px solid;">NIM</th>
                         <th class="px-1 py-1" style="border: 1px solid;">Prodi</th>
                         <th class="px-1 py-1" style="border: 1px solid;">Semester</th>
+                        <th class="px-1 py-1" style="border: 1px solid;">Pembimbing Akademik</th>
                         <th class="px-1 py-1" style="border: 1px solid;">Status</th>
                         <th class="px-14 py-1" style="border: 1px solid;">Action</th>
                     </tr>
@@ -46,6 +47,7 @@
                         <td class="boder px-4 py-2 text-black " style=" solid;text-align:center;">{{ $row -> nim }}</td>
                         <td class="boder px-4 py-2 text-black " style=" solid;text-align:center;">{{ $row -> prodi }}</td>
                         <td class="boder px-4 py-2 text-black " style=" solid;text-align:center;">{{ $row -> semester }}</td>
+                        <td class="boder px-4 py-2 text-black " style=" solid;text-align:center;">{{ $row -> pembimbing }}</td>
                         <td class="boder px-4 py-2 text-black " style=" solid;text-align:center;">{!! $row -> status_label !!}</td>
                         <td class="boder px-4 py-2 text-black " style=" solid;text-align:center;">
                             <button wire:click="edit({{ $row -> id}})" class="bg-green-500 hover:bg-green-500 text-white font-bold py-2 px-2 rounded">

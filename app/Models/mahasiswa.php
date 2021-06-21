@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class mahasiswa extends Model
 {
     use HasFactory;
-    protected $fillable = ['nama', 'nim','prodi', 'semester','status'];
+    protected $fillable = ['nama', 'nim','prodi', 'semester','pembimbing','status'];
     protected $appends = ['status_label'];
 
     public function getStatusLabelAttribute()

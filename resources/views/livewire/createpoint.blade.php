@@ -20,14 +20,16 @@
 
                     <div class="">
 
-                        <div class="mb-4">
+                    <div class="mb-4">
 
-                            <label for="fornim" class="block text-gray-700 text-sm font-bold mb-2">NIM</label>
+                        <label for="fornim" class="block text-gray-700 text-sm font-bold mb-2 ">NIM</label>
 
-                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="fornim" placeholder="Enter NIM" wire:model="nim">
-
-                            @error('nim') <span class="text-red-500">{{ $message }}</span>@enderror
-
+                        <select name="nim" class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="nim">
+                            <option value=" ">--Pilih NIM--</option>
+                            @foreach($mahasiswas as $nim)
+                            <option value="{{$nim->nim}}">{{$nim->nim}}</option>
+                            @endforeach
+                        </select>
                         </div>
 
                         <div class="mb-4">
@@ -89,7 +91,7 @@
                         </div>
 
                             <div class="mb-4">
-                            <label for="forfile" class="block text-gray-700 text-sm font-bold mb-2">File</label>
+                            <label for="forfile" class="block text-black 700 text-sm font-bold mb-2">File</label>
                             <input type="file"
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-black-700 leading-tight focus:outline-none focus:shadow-outline"
                                 id="forfile" name="bukti" placeholder="Enter File" wire:model="file">

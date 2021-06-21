@@ -37,7 +37,7 @@
                         <th class="px-1 py-1" style="border: 1px solid;">NIDN</th>
                         <th class="px-1 py-1" style="border: 1px solid;">Email</th>
                         <th class="px-1 py-1" style="border: 1px solid;">No.Telepon</th>
-                        <th class="px-1 py-1" style="border: 1px solid;">Bidang Ilmu</th>
+                        <th class="px-1 py-1" style="border: 1px solid;">Bidang Mengajar</th>
                         <th class="px-1 py-1" style="border: 1px solid;">Status</th>
                         <th class="px-1 py-1" style="border: 1px solid;">Action</th>
                     </tr>

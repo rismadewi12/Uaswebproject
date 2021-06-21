@@ -5,6 +5,7 @@ use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 use Livewire\Component;
 use App\Models\Point;
+use App\Models\mahasiswa;
 use App\Models\dosen;
 use App\Models\Kategori;
 use App\Models\Nilai;
@@ -18,13 +19,14 @@ class Points extends Component
         public $isModal;
     public function render()
     {   
+        $mahasiswas = mahasiswa::all();
         $nilais = Nilai::all();
         $kategoris = Kategori::all();
         $dosens = dosen::all();
         $search = '%'.$this->search.'%';
         $Points = point::where('nim','LIKE',$search)
                 ->orderBy('created_at','DESC')->paginate(3);
-        return view('livewire.points',compact('dosens','kategoris','nilais'),['Points'=> $Points])->layout('layouts.template');
+        return view('livewire.points',compact('dosens','mahasiswas','kategoris','nilais'),['Points'=> $Points])->layout('layouts.template');
       
       
     }
@@ -95,6 +97,7 @@ class Points extends Component
   
         public function edit($id)
         {
+            $mahasiswa = mahasiswa::all();
             $nilais = Nilai::all();
             $kategoris = Kategori::all();
              $dosens = dosen::all();

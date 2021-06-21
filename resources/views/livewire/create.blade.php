@@ -62,6 +62,15 @@
 
                         </div>
 
+                
+                        <label for="forpembimbing" class="block text-gray-700 text-sm font-bold mb-2">Pembimbing Akademik*</label>
+                        <select name="pembimbing" class="form-control shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" wire:model="pembimbing">
+                                <option value=" ">--Pilih Pembimbing Akademik--</option>
+                                @foreach($dosens as $pembimbing)
+                                <option value="{{$pembimbing->nama}}">{{$pembimbing->nama}}</option>
+                                @endforeach
+                            </select>
+
                         <div class="mb-4">
 
                             <label for="forstatus" class="block text-gray-700 text-sm font-bold mb-2">Status</label>

@@ -5,23 +5,25 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\mahasiswa;
 use App\Models\Prodi;
+use App\Models\dosen;
 use Livewire\WithPagination;
 
 
 class Mahasiswas extends Component
 {
     use WithPagination;
-    public $mahasiswa, $nama, $nim, $prodi, $semester, $status , $mahasiswa_id ,$search;
+    public $mahasiswa, $nama, $nim, $prodi, $semester, $status , $mahasiswa_id ,$search,$pembimbing ;
     public $isModal;
     
     public function render()
     {   
-
+        
         $prodis = Prodi::all();
+        $dosens = dosen::all();
         $search = '%'.$this->search.'%';
         $mahasiswas = mahasiswa::where('nama','LIKE',$search)
                 ->orderBy('created_at','DESC')->paginate(5);
-        return view('livewire.mahasiswas', compact('prodis'),['mahasiswas'=> $mahasiswas]) ->layout('layouts.template');
+        return view('livewire.mahasiswas', compact('prodis','dosens'),['mahasiswas'=> $mahasiswas]) ->layout('layouts.template');
         
     }
 
@@ -37,6 +39,7 @@ class Mahasiswas extends Component
         $this->nim ='';
         $this->prodi ='';
         $this->semester ='';
+        $this->pembimbing ='';
         $this->status ='';
         $this->mahasiswa_id ="";
     }
@@ -59,6 +62,7 @@ class Mahasiswas extends Component
             'nim'=> 'required|numeric',
             'prodi'=> 'required|string',
             'semester'=> 'required|string',
+            'pembimbing'=>'required|string',
             'status'=> 'required| string'
         ]);
 
@@ -69,6 +73,7 @@ class Mahasiswas extends Component
              'nim'=>$this->nim,
              'prodi'=>$this->prodi,
              'semester'=>$this->semester,
+             'pembimbing'=> $this->pembimbing,
              'status'=> $this->status,
 
             ]
@@ -82,12 +87,14 @@ class Mahasiswas extends Component
     public function edit($id)
     {
         $prodis = Prodi::all();
+        $dosens = dosen::all();
         $mahasiswa = mahasiswa::find($id);
         $this-> mahasiswa_id = $id;
         $this->nama =$mahasiswa->nama;
         $this->nim  =$mahasiswa->nim;
         $this->prodi =$mahasiswa->prodi;
         $this->semester =$mahasiswa->semester;
+        $this->pembimbing =$mahasiswa->pembimbing;
         $this->status=$mahasiswa->status;
 
 
